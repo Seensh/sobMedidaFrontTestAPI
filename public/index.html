@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca na API</title>
+</head>
+<body>
+    <h1>Busca na API</h1>
+    <button onclick="buscarAPI()">Buscar na API</button>
+    <p>Resposta da API: <span id="respostaApi"></span></p>
+
+    <script>
+        async function buscarAPI() {
+            try {
+                const response = await fetch('/api/exemplo'); // Substitua pela rota da sua API
+                const data = await response.json();
+                document.getElementById('respostaApi').innerText = JSON.stringify(data, null, 2);
+            } catch (error) {
+                console.error('Erro ao buscar na API:', error);
+            }
+        }
+    </script>
+</body>
+</html>
